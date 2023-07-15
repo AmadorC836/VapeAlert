@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// imports home from pages/Home
+import Home from './pages/Home'
+import{ createNativeStackNavigator } from '@react-navigation/native-stack'
+import{createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+const Tabs = createBottomTabNavigator()
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, View, Image} from  'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // Container for the navigation bar 
+    <NavigationContainer>
+      {/* <Image source = {require('./assets/VapeAlert.png')} style ={styles.logo}/> */}
+      {/* Adds Home at the bottom of tab and allows you to click it to enter Home page */}
+      <Tabs.Navigator>
+        <Tabs.Screen name = "Home" component={Home}/>
+      </Tabs.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
+
