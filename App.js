@@ -1,36 +1,56 @@
-// imports home from pages/Home
-import Preview from './pages/Restroom'
-import Home from './pages/Home'
-import AlertScreen from './pages/AlertScreen'
-import{ createNativeStackNavigator } from '@react-navigation/native-stack'
-import{createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-const Tabs = createBottomTabNavigator()
-import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import { StyleSheet, Text, View, Image } from  'react-native';
+import TabNavigators from "./Navigation/TabNavigators";
+import "react-native-gesture-handler";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import DetailPageOne from "./pages/DetailPageOne";
+import AddRestroom from "./pages/AddRestroom";
+import React from "react";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    primary: " rgb(255,255,255)",
+    text: "rgb(255,255,255)",
+  },
+};
 
 export default function App() {
   return (
-    // Container for the navigation bar 
-    <NavigationContainer>
-      {/* <Image source = {require('./assets/VapeAlert.png')} style ={styles.logo}/> */}
-      {/* Adds Home at the bottom of tab and allows you to click it to enter Home page */}
-      <Tabs.Navigator>
-        {/* <Tabs.Screen name = "Home" component={Home}/> */}
-        <Tabs.Screen name = "AlertScreen" component={AlertScreen}/>
-        <Tabs.Screen name = "Restroom" component={Preview}/>
-      </Tabs.Navigator>
-    </NavigationContainer>
+    <View style={{ flex: 1, backgroundColor: "black" }}>
+      <View
+        style={{
+          marginTop: 66,
+          marginLeft: 19,
+          alignItems: "flex-start",
+          backgroundColor: "black",
+        }}
+      >
+        <Text style={{ fontSize: 30, color: "white" }}>Hello, Amador </Text>
+      </View>
+      <NavigationContainer theme={MyTheme}>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={TabNavigators}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="Details" component={DetailPageOne} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    backgroundColor: "#000000",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
   },
 });
-

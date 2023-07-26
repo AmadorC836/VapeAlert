@@ -1,10 +1,11 @@
-import { Text, View, StyleSheet, Quicksand } from "react-native";
+import { SafeAreaView } from "react-native";
+import { Text, StyleSheet, } from "react-native";
 
 export default function AlertScreen() {
     return(
-    <View >
-      <Text style={styles.text}>Hello, Name!</Text>
-    </View>
+    <SafeAreaView >
+      
+    </SafeAreaView>
     )
   }
   const styles = StyleSheet.create({
@@ -12,16 +13,16 @@ export default function AlertScreen() {
       //   flex: 1,
       //   flexDirection: 'column',
       backgroundColor: "##454444, #141414",
-      //   alignItems: 'center',
+      // njo   alignItems: 'center',
       //   justifyContent: 'center',
     },
     text: {
       color: "red",
       fontSize: 35,
       zIndex: 10,
-      fontFamily: "Quicksand",
+      fontFamily: "",
       fontStyle: "normal",
       fontWeight: 400,
     },
   });
-  
+   

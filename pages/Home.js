@@ -2,9 +2,7 @@ import { Text, View, StyleSheet } from "react-native";
 // makes a function called home and exports it so other files can use it
 export default function Home() {
   return(
-  <View >
-    <Text style={styles.text}>Hello World!</Text>
-  </View>
+    <></>
   )
 }
 const styles = StyleSheet.create({
