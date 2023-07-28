@@ -70,7 +70,7 @@ export default function Restroom({ navigation }) {
         {/* </View> */}
         </View>
       </TouchableOpacity>
-      <Text style={{ color: "white", top: 300, left: 1}}>Add Device</Text>
+      <Text style={{ color: "white", top: 300, left: 160}}>Add Device</Text>
       {/*Move this inside view part in Details page */}
       {/* <LineChart
         data={data}

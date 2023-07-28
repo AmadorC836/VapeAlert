@@ -6,13 +6,23 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Animated
+  Animated,
+  TextInput,
+  onChangeNumber,
+  number,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import MaterialIcons from 'material-icons-react';
 import { toggleAnimation } from '../animations/toggleAnimation';
 
+
+
 export function AccordionItem({ title,body1,body2,floorNum,restNum}) {
+
+const TextInputExample = () => {
+  const [number, onChangeNumber] = React.useState('');
+}
+  
   //setting initial state to false
   const[showContent,setShowContent] = useState(false)
   //Controls the animations for the body 
@@ -52,14 +62,20 @@ collapse into the accordian/ Box1*/}
    {showContent && ( 
     <View style={styles.box}>
          <View style={styles.inner}>
-             <Text style={{ color: "white", left: -30, fontSize: 15,top:-15 }}>
+             <Text style={{ color: "white", left: -30, fontSize: 15,top:15 }}>
               {body1}
              </Text>
              {/*Style this one for the 
              floor number */}
-             <Text>
-              {floorNum}
-             </Text>
+             <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="#"
+        placeholderTextColor={'white'}
+        keyboardType="numeric"
+        
+      />       
            </View>
          </View>
 
@@ -71,14 +87,19 @@ collapse into the accordian/ Box1*/}
 {showContent && ( 
     <View style={styles.box1}>
          <View style={styles.inner1}>
-             <Text style={{ color: "white", left: -10, fontSize: 15,top:-13 }}>
+             <Text style={{ color: "white", left: -20, fontSize: 15,top:15 }}>
               {body2}
              </Text>
              {/*Make sure you style this text tag for 
              the restroom number */}
-             <Text>
-              {restNum}
-             </Text>
+             <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="###"
+        placeholderTextColor={'white'}
+        keyboardType="numeric"
+      />        
            </View>
          </View>  
    )}
@@ -89,20 +110,21 @@ collapse into the accordian/ Box1*/}
  
   const styles = StyleSheet.create({
 container:{
-  width:'100%',
-  
+  width:369,
   padding:'2%',
-  borderRadius:12,
+  borderRadius:10,
   backgroundColor:'#585858',
   marginBottom:'2%',
   overflow:'hidden',
+  left:21
  
 
 },
 title:{
   fontSize:16,
   color:'white',
-  fontWeight:'bold',
+  left:128
+
 },
 body:{
   paddingHorizontal:'2%',
@@ -112,17 +134,18 @@ titleContainer:{
   flexDirection:'row',
   alignItems:'center',
   justifyContent:'space-between',
+  height:30,
   
 },
 inner: {
   
-  height:95,
+  height:88,
   width:172,
   backgroundColor: "#3E3E3E",
   alignItems: "center",
   justifyContent: "center",
   borderRadius: 15,
-  left: 19,
+  left: -4,
   top: 5,
 },
 box: {
@@ -156,11 +179,20 @@ inner1: {
   alignItems: "center",
   justifyContent: "center",
   borderRadius: 15,
-  left: 19,
+  left: -16,
   top: 1,
 },
 
 row: {
   flexDirection: "row",
-}
+},
+input: {
+  height: 40,
+  margin: 12,
+  borderWidth: 0,
+  padding: 10,
+  color:'white',
+
+
+},
   });
