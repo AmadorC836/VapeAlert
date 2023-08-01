@@ -31,9 +31,9 @@ const screenWidth = Dimensions.get("window").width;
 
 export default function Restroom({ navigation }) {
   return (
-    <View style={{ backgroundColor: "rgba(0,0,0,1)", flex: 1 }}>
+    <View style={{ backgroundColor: "#262626", flex: 1 }}>
       <LinearGradient
-        colors={["rgba(0,0,0,1)", "transparent"]}
+        colors={["#262626", "transparent"]}
         style={{ position: "absolute", left: 0, right: 0, top: 0, height: 700 }}
       />
 

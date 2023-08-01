@@ -7,7 +7,9 @@ import { Text,
   Easing, 
   SafeAreaView,
   ScrollView,
-TouchableOpacity,
+  TouchableOpacity,
+Button
+
 } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
@@ -15,7 +17,9 @@ import React, { useState, useRef } from 'react';
 import { PropsWithChildren } from "react";
 import { AccordionItem } from '../components/AccordianList';
 import { Pressable } from "react-native";
-
+import { redirect } from "react-router-dom";
+import Modal from "react-native-modal";
+import { WifiScreen } from "./KalvinsCode";
 
 const screenWidth = Dimensions.get("window").width;
 const data = {
@@ -43,6 +47,9 @@ export default function DetailPageOne({  }) {
       restNum={251}
       />
       
+    </View>
+    <View>
+      <WifiScreen/>
     </View>
       
       {/* <View style={style.row}> */}
@@ -120,6 +127,10 @@ const style = StyleSheet.create({
     right:-30,
     top: 320,
   },
+  innter4:{
+backgroundColor:"red",
+top:500,
+  },
   that:{
   width: 355,
     height: 88,
@@ -130,6 +141,26 @@ const style = StyleSheet.create({
   height:50, 
   left:26, 
   top:20
+  },
+  modalBackGround: {
+    flex: 1,
+    backgroundColor: "0,0,0,0.5",
+    justifyContent:'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    width: 273,
+    backgroundColor: "rgba(23, 23, 23, 0.80)", 
+    paddingHorizontal:20, 
+    paddingVertical: 30,
+    borderRadius: 20,
+    elevation: 20,
+  },
+  header: {
+    width: "100%",
+    height: 40,
+    alignItems: "flex-end",
+    justifyContent: 'center'
   }
   
 });

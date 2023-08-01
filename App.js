@@ -19,13 +19,13 @@ const MyTheme = {
 
 export default function App() {
   return (
-    <View style={{ flex: 1, backgroundColor: "black" }}>
+    <View style={{ flex: 1, backgroundColor: "#262626" }}>
       <View
         style={{
           marginTop: 66,
           marginLeft: 19,
           alignItems: "flex-start",
-          backgroundColor: "black",
+          backgroundColor: "#262626",
         }}
       >
         <Text style={{ fontSize: 30, color: "white" }}>Hello, Amador </Text>

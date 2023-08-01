@@ -1,7 +1,7 @@
 import { SafeAreaView } from "react-native";
 import { Text, StyleSheet, } from "react-native";
 
-export default function AlertScreen() {
+export default function Dashboard() {
     return(
     <SafeAreaView >
       
