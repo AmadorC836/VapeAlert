@@ -10,6 +10,7 @@ import {
   TextInput,
   onChangeNumber,
   number,
+  Image
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import MaterialIcons from 'material-icons-react';
@@ -50,6 +51,7 @@ const TextInputExample = () => {
     <TouchableOpacity onPress ={()=> toggleListItem()}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}> {title}</Text> 
+        <Image source={require("../assets/WifiGone.png")} style={{ height:18, width: 19.5, left: 30}}/>
         {/* <Animated.View style={{transform: [{rotateZ: arrowTransform}]}}> */}
         <Icon name={'chevron-right'} size={20} color={'white'} />
         {/* </Animated.View> */}
@@ -112,8 +114,8 @@ collapse into the accordian/ Box1*/}
 container:{
   width:369,
   padding:'2%',
-  borderRadius:10,
-  backgroundColor:'#585858',
+  borderRadius:15,
+  backgroundColor:'black',
   marginBottom:'2%',
   overflow:'hidden',
   left:21
@@ -152,7 +154,7 @@ box: {
   width: 172,
   height: 100,
   padding: 10,
-  backgroundColor:'#585858',
+  backgroundColor:'black',
   left:-10
   // shadowColor:'white',
   // shadowOpacity:1,
@@ -162,7 +164,7 @@ box1: {
   width: 172,
   height: 100,
   padding: 10,
-  backgroundColor:'#585858',
+  backgroundColor:'black',
   top:5,
   right:-20
   

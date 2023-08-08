@@ -21,6 +21,7 @@
     "@react-navigation/stack": "^6.3.17",
     "accordion-collapse-react-native": "^1.1.1",
     "alert": "^5.1.4",
+    "compound": "^1.2.4",
     "expo": "~48.0.18",
     "expo-app-loading": "^2.1.1",
     "expo-dev-client": "~2.2.1",
@@ -48,7 +49,8 @@
     "react-native-tab-view": "^3.5.2",
     "react-native-vector-icons": "^10.0.0",
     "react-router-dom": "^6.14.2",
-    "react-text-input": "^0.0.8"
+    "react-text-input": "^0.0.8",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

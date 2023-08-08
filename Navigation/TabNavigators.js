@@ -6,8 +6,9 @@ const Tabs = createMaterialTopTabNavigator();
 
 export default function TabNavigators() {
   return (
+
     <Tabs.Navigator>
-      <Tabs.Screen name="     " component={Restroom} />
+      <Tabs.Screen name="Dashboard" component={Restroom} />
     </Tabs.Navigator>
   );
 }

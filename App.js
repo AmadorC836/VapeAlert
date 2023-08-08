@@ -6,6 +6,7 @@ import AddRestroom from "./pages/AddRestroom";
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 
+
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
@@ -28,6 +29,7 @@ export default function App() {
           backgroundColor: "#262626",
         }}
       >
+        
         <Text style={{ fontSize: 30, color: "white" }}>Dashboard </Text>
       </View>
       <NavigationContainer theme={MyTheme}>

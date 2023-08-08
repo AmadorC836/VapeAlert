@@ -3,14 +3,9 @@ import {
   View,
   StyleSheet,
   Image,
-  TouchableWithoutFeedback,
-  Animated,
-  Easing,
   SafeAreaView,
-  ScrollView,
   TouchableOpacity,
-  Button,
-  Alert,
+  Modal
 } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
@@ -19,14 +14,15 @@ import { PropsWithChildren } from "react";
 import { AccordionItem } from "../components/AccordianList";
 import { Pressable } from "react-native";
 import { redirect } from "react-router-dom";
-import Modal from "react-native-modal";
 import { WifiScreen } from "./KalvinsCode";
 import useInterval from "../Polling/useInterval";
 import { loadAsync } from "expo-font";
 import messaging from "@react-native-firebase/messaging";
 import { PushNotification } from "react-native";
 import {PermissionsAndroid} from 'react-native';
+import PopUp from "../components/PopUp";
   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+
 
 const screenWidth = Dimensions.get("window").width;
 const data = {
@@ -42,28 +38,7 @@ const data = {
   // legend: ["Restroom1"], // optional
 };
 //Gets averages of the data
-function getAverages() {
-  console.log("getting info:");
 
-  fetch("http://192.168.1.192/")
-    .then((res) => {
-      // console.log(res.body);
-      return res.json();
-    })
-    .then((data) => {
-      //   console.log('something')
-      // console.log(data.body);
-      // setData(data);
-      // console.log('This is Main data')
-      // console.log(mainData)
-      // console.log("==="+data)
-      console.log(data);
-      return data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
 // function change(list){
 //  console.log(list)
 
@@ -76,60 +51,41 @@ function saving(vari) {
 
 // //Main function running this page
 export default function DetailPageOne({ navigation }) {
-  // // requests user permission for firebase
-  // const requestUserPermission = async () => {
-  //   const authStatus = await messaging().requestPermission();
-  //   const enabled =
-  //     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-  //     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-  //   if (enabled) {
-  //     console.log("Authorization status:", authStatus);
-  //   }
-  // };
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false)
+
+  function getAverages() {
+
+
+    console.log("getting info:");
+  
+    fetch("http://192.168.1.227/")
+      .then((res) => {
+        // console.log(res.body);
+        return res.json();
+      })
+      .then((data) => {
+        //   console.log('something')
+        // console.log(data.body);
+        // setData(data);
+        // console.log('This is Main data')
+        // console.log(mainData)
+        // console.log("==="+data)
+        console.log(data);
+        if(data >= 500){
+          setIsPopUpVisible(!isPopUpVisible)
+        }else{
+          setIsPopUpVisible(false)
+        }
+        return data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   useEffect(() => {
 
-    //if given permission it gives you the token and also console.logs it
-    // if (requestUserPermission()) {
-    //   messaging()
-    //     .getToken()
-    //     .then((token) => {
-    //       console.log(token);
-    //     });
-    // }
-    // //might wanna look at authStatus dont know if it will bug because it
-    // else {
-    //   console.log("Failed token status", authStatus);
-    // }
-    //If you get and press on a noti it will open app even if you quit
-    // messaging()
-    //   .getInitialNotification()
-    //   .then(async (remoteMessage) => {
-    //     if (remoteMessage) {
-    //       console.log(
-    //         "Notification caused app to open from quit state:",
-    //         remoteMessage.notification
-    //       );
-    //     }
-    //   });
-    //I think when message opens this is meant to take you to the app
-    // messaging().onNotificationOpenedApp(async (remoteMessage) => {
-    //   console.log(
-    //     "Notification caused app to open from background state",
-    //     remoteMessage.notification
-    //   );
-    //   navigation.navigate(remoteMessage.data.type);
-    // });
-
-    // messaging().setBackgroundMessageHandler(async (remoteMessage) => {
-    //   console.log("Message handled in the background!", remoteMessage);
-    // });
-    // const unsubscribe = messaging().onMessage(async (remoteMessage) => {
-    //   Alert.alert(
-    //     "A new FCM message arrived!, ",
-    //     JSON.stringify(remoteMessage)
-    //   );
-    // });
+    
   }, []);
 
   const [mainData, setData] = useState(null);
@@ -137,7 +93,7 @@ export default function DetailPageOne({ navigation }) {
   // useInterval(saving(mainData),10000)
   // mainDataChange(result)
   console.log(mainData);
-  useInterval(getAverages, 1000);
+  useInterval(getAverages, 6000);
   // let changePer = []
   // useInterval(getAverages, 6000);
 
@@ -147,18 +103,27 @@ export default function DetailPageOne({ navigation }) {
   // data.datasets.push(changePer[0])
   return (
     <SafeAreaView>
+      
       <View>
+        {isPopUpVisible ? <PopUp 
+        setIsPopUpVisible={setIsPopUpVisible}
+        /> : null}
+      </View>
+      <View>
+
         <AccordionItem
-          title={"Restroom 1"}
+          title={"Not Connected"}
           body1={"Floor: "}
           body2={"Restroom #:"}
           body3
           floorNum={1}
           restNum={251}
         />
+          
+      
       </View>
       <View>
-        <WifiScreen />
+        <WifiScreen/>
       </View>
       <View style={style.that}>
         <View style={style.inner3}>
@@ -176,9 +141,28 @@ export default function DetailPageOne({ navigation }) {
           style={{ left: 25, top: -80, borderRadius: 10, padding: 2 }}
         />
       </View>
+      <TouchableOpacity>
+        <View>
+      <Image
+          style={{
+            height: 40,
+            width: 40,
+            alignItems: "center",
+            top: 100,
+            left: 185
+          
+          }}
+          source={require("../assets/formkit_add.png")}
+        />
+        <Text style={{ color: "white", left:170, top:100}}>
+          Add Device
+        </Text>
+        </View>
+        </TouchableOpacity>
     </SafeAreaView>
   );
 }
+
 
 const chartConfig = {
   backgroundGradientFrom: "#3E3E3E",

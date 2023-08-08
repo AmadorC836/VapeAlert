@@ -26,7 +26,7 @@ export const WifiScreen = () => {
       <Modal isVisible={isModalVisible} animationIn="bounceInDown">
         <View
           style={{
-            backgroundColor: "rgba(23, 23, 23, 1)",
+            backgroundColor: '#171717',
             height: 273,
             width: 273,
             left: 50,
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     height: 48,
     paddingTop: 13,
     borderRadius: 10,
-    backgroundColor: "#585858",
+    backgroundColor: "black",
     color: "#FFFFFF",
   },
   SaveModalButtonText: {
