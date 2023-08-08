@@ -10,10 +10,11 @@ import {
   ScrollView,
   TouchableOpacity,
   Button,
+  Alert,
 } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
-import React, { useState, useRef} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { PropsWithChildren } from "react";
 import { AccordionItem } from "../components/AccordianList";
 import { Pressable } from "react-native";
@@ -22,6 +23,10 @@ import Modal from "react-native-modal";
 import { WifiScreen } from "./KalvinsCode";
 import useInterval from "../Polling/useInterval";
 import { loadAsync } from "expo-font";
+import messaging from "@react-native-firebase/messaging";
+import { PushNotification } from "react-native";
+import {PermissionsAndroid} from 'react-native';
+  PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const screenWidth = Dimensions.get("window").width;
 const data = {
@@ -36,14 +41,14 @@ const data = {
   ],
   // legend: ["Restroom1"], // optional
 };
-
- function getAverages() {
+//Gets averages of the data
+function getAverages() {
   console.log("getting info:");
 
-   fetch("http://192.168.1.109/")
+  fetch("http://192.168.1.192/")
     .then((res) => {
       // console.log(res.body);
-      return res.json()
+      return res.json();
     })
     .then((data) => {
       //   console.log('something')
@@ -52,8 +57,8 @@ const data = {
       // console.log('This is Main data')
       // console.log(mainData)
       // console.log("==="+data)
-      console.log(data)
-      return(data)
+      console.log(data);
+      return data;
     })
     .catch((err) => {
       console.log(err);
@@ -63,18 +68,76 @@ const data = {
 //  console.log(list)
 
 // }
-function saving(vari){
-
-  const result = getAverages()
-  vari(result)
+//potentially for saving data from board into a variable that we can display
+function saving(vari) {
+  const result = getAverages();
+  vari(result);
 }
-export default function DetailPageOne() {
-  const[mainData, setData]= useState(null)
+
+// //Main function running this page
+export default function DetailPageOne({ navigation }) {
+  // // requests user permission for firebase
+  // const requestUserPermission = async () => {
+  //   const authStatus = await messaging().requestPermission();
+  //   const enabled =
+  //     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+  //     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  //   if (enabled) {
+  //     console.log("Authorization status:", authStatus);
+  //   }
+  // };
+
+  useEffect(() => {
+
+    //if given permission it gives you the token and also console.logs it
+    // if (requestUserPermission()) {
+    //   messaging()
+    //     .getToken()
+    //     .then((token) => {
+    //       console.log(token);
+    //     });
+    // }
+    // //might wanna look at authStatus dont know if it will bug because it
+    // else {
+    //   console.log("Failed token status", authStatus);
+    // }
+    //If you get and press on a noti it will open app even if you quit
+    // messaging()
+    //   .getInitialNotification()
+    //   .then(async (remoteMessage) => {
+    //     if (remoteMessage) {
+    //       console.log(
+    //         "Notification caused app to open from quit state:",
+    //         remoteMessage.notification
+    //       );
+    //     }
+    //   });
+    //I think when message opens this is meant to take you to the app
+    // messaging().onNotificationOpenedApp(async (remoteMessage) => {
+    //   console.log(
+    //     "Notification caused app to open from background state",
+    //     remoteMessage.notification
+    //   );
+    //   navigation.navigate(remoteMessage.data.type);
+    // });
+
+    // messaging().setBackgroundMessageHandler(async (remoteMessage) => {
+    //   console.log("Message handled in the background!", remoteMessage);
+    // });
+    // const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+    //   Alert.alert(
+    //     "A new FCM message arrived!, ",
+    //     JSON.stringify(remoteMessage)
+    //   );
+    // });
+  }, []);
+
+  const [mainData, setData] = useState(null);
   // mainDataChange(getAverages)
   // useInterval(saving(mainData),10000)
   // mainDataChange(result)
-  console.log(mainData)
-  useInterval(getAverages , 2000)
+  console.log(mainData);
+  useInterval(getAverages, 1000);
   // let changePer = []
   // useInterval(getAverages, 6000);
 

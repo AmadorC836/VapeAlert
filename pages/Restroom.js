@@ -38,7 +38,7 @@ export default function Restroom({ navigation }) {
       />
 
       <TouchableOpacity
-      style={{ alignItems: 'center', alignContent: 'center', backgroundColor: "white"}}
+      style={{ alignItems: 'center', alignContent: 'center', backgroundColor: "white", width: 111, height:111, paddingLeft:10}}
         onPress={() => {
           navigation.navigate("Details")
         }}
@@ -94,8 +94,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    width:20,
-    backgroundColor: "white"
+    width:100,
+    backgroundColor: "white",
+    width:100
+     
   },
   txt: {
     color: "red",

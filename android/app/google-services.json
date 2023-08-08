@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1052360434110",
+    "project_id": "vape-alert",
+    "storage_bucket": "vape-alert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052360434110:android:674361b33d14a69e1119ef",
+        "android_client_info": {
+          "package_name": "com.amadorcruz.VapeAlert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052360434110-i9ro1n82k50emoredlvv0f3q37ul1f6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amadorcruz.VapeAlert",
+            "certificate_hash": "f3abce959bbf2a0fb094b932739508cd5e2836bb"
+          }
+        },
+        {
+          "client_id": "1052360434110-j709h2l86fq3s9tlfv077839mn906iu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amadorcruz.VapeAlert",
+            "certificate_hash": "22290a0aeaba1721214f3a4889f0684fbd1c14a6"
+          }
+        },
+        {
+          "client_id": "1052360434110-ulak7eh4i1ema26mm3sl1s6i3lh0vfg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAczSRKFQnn_0fTEYRfHb_VtuS0V9FnBx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052360434110-ulak7eh4i1ema26mm3sl1s6i3lh0vfg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,7 +28,7 @@ export default function App() {
           backgroundColor: "#262626",
         }}
       >
-        <Text style={{ fontSize: 30, color: "white" }}>Hello, Amador </Text>
+        <Text style={{ fontSize: 30, color: "white" }}>Dashboard </Text>
       </View>
       <NavigationContainer theme={MyTheme}>
         <Stack.Navigator initialRouteName="Home">
