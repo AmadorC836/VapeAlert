@@ -23,10 +23,10 @@ import Modal from "react-native-modal";
 import { WifiScreen } from "./KalvinsCode";
 import useInterval from "../Polling/useInterval";
 import { loadAsync } from "expo-font";
-import messaging from "@react-native-firebase/messaging";
+// import messaging from "@react-native-firebase/messaging";
 import { PushNotification } from "react-native";
-import {PermissionsAndroid} from 'react-native';
-  PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+// import { PermissionsAndroid } from "react-native";
+// PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const screenWidth = Dimensions.get("window").width;
 const data = {
@@ -35,7 +35,7 @@ const data = {
     {
       data: [6, 7, 1, 3, 9, 3, 4, 2, 6],
       //come back to the RGBA
-      color: (opacity = 1) => `rgba(255,255,255 ${opacity})`, // optional
+      color: (opacity = 1) => `rgba(255,255,255, ${opacity})`, // optional
       strokeWidth: 2, // optional
     },
   ],
@@ -88,7 +88,6 @@ export default function DetailPageOne({ navigation }) {
   // };
 
   useEffect(() => {
-
     //if given permission it gives you the token and also console.logs it
     // if (requestUserPermission()) {
     //   messaging()
@@ -120,7 +119,6 @@ export default function DetailPageOne({ navigation }) {
     //   );
     //   navigation.navigate(remoteMessage.data.type);
     // });
-
     // messaging().setBackgroundMessageHandler(async (remoteMessage) => {
     //   console.log("Message handled in the background!", remoteMessage);
     // });
