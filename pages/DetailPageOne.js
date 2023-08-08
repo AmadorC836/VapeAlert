@@ -152,6 +152,7 @@ export default function DetailPageOne({ navigation }) {
           title={"Restroom 1"}
           body1={"Floor: "}
           body2={"Restroom #:"}
+          body3
           floorNum={1}
           restNum={251}
         />

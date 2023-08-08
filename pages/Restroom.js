@@ -8,7 +8,9 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { AppLoading } from "expo";
 import { LinearGradient } from "expo-linear-gradient";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import Touchable from 'react-native-platform-touchable'
+// import { TouchableOpacity } from "react-native-gesture-handler";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 
 // import React, {useState} from "react";
 // import * as SplashScreen from 'expo-splash-screen';
@@ -34,11 +36,11 @@ export default function Restroom({ navigation }) {
     <View style={{ backgroundColor: "#262626", flex: 1 }}>
       <LinearGradient
         colors={["#262626", "transparent"]}
-        style={{ position: "absolute", left: 0, right: 0, top: 0, height: 700 }}
+        style={{ position: "absolute", left: 30, right: 0, top: 0, height: 700 }}
       />
 
-      <TouchableOpacity
-      style={{ alignItems: 'center', alignContent: 'center', backgroundColor: "white", width: 111, height:111, paddingLeft:10}}
+      <Touchable
+      style={{ alignItems: 'center', alignContent: 'center', width: 111, height:111, left: 150, top: 250}}
         onPress={() => {
           navigation.navigate("Details")
         }}
@@ -69,8 +71,8 @@ export default function Restroom({ navigation }) {
       
         {/* </View> */}
         </View>
-      </TouchableOpacity>
-      <Text style={{ color: "white", top: 300, left: 160}}>Add Device</Text>
+      </Touchable>
+      <Text style={{ color: "white", top: 250, left: 155, fontSize: 22}}>Add Device</Text>
       {/*Move this inside view part in Details page */}
       {/* <LineChart
         data={data}
@@ -94,9 +96,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    width:100,
-    backgroundColor: "white",
-    width:100
+    width:111,
+    width:111,
      
   },
   txt: {
