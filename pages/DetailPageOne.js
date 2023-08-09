@@ -15,6 +15,7 @@ import { PermissionsAndroid } from "react-native";
 import PopUp from "../components/PopUp";
 PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
+// SENSOR IP!
 const DEFAULT_IP = "192.168.68.108";
 
 const DEFAULT_DATA = [{ value: 100 }];
@@ -90,12 +91,12 @@ export default function DetailPageOne({ navigation }) {
     //     }
     //   });
     // }, 1000);
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
+    //
+    // return () => {
+    //   if (interval) {
+    //     clearInterval(interval);
+    //   }
+    // };
   }, []);
 
   return (
@@ -170,15 +171,6 @@ export default function DetailPageOne({ navigation }) {
     </SafeAreaView>
   );
 }
-
-const chartConfig = {
-  backgroundGradientFrom: "#3E3E3E",
-  backgroundGradientTo: "#3E3E3E",
-  color: (opacity = 1) => `rgba(255,255,255, ${opacity})`,
-  strokeWidth: 5, // optional, default 3
-  barPercentage: 0.5,
-  useShadowColorFromDataset: false, // optional
-};
 
 const style = StyleSheet.create({
   box: {
