@@ -16,8 +16,10 @@ import PopUp from "../components/PopUp";
 PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 // SENSOR IP!
-const DEFAULT_IP = "192.168.68.108";
+// HERE WE NEED THE NEW IP OK :)
+const DEFAULT_IP = "192.168.12.195";
 
+// DEFUALT ROOM READING TENDS TO BE AROUND 100 ok :)
 const DEFAULT_DATA = [{ value: 100 }];
 
 // //Main function running this page
@@ -29,9 +31,12 @@ export default function DetailPageOne({ navigation }) {
 
   useEffect(() => {
     const ws = new WebSocket(`ws://${ip}/ws`);
+    // here we get the ok connection to sesnsor
     ws.onopen = () => {
       setStatus("Connected");
     };
+    // hhere we get the disconnect msg
+    // we can use these later - dopnt matter rn
     ws.onclose = (e) => {
       setStatus("Disconnected");
     };
@@ -39,10 +44,17 @@ export default function DetailPageOne({ navigation }) {
       setStatus("Error");
       console.log(e.message);
     };
+    // here is where we listen for the new reading
+    // the arduino code decides when the reading are sent  - not here ok
+    // here we jut read ok :)
     ws.onmessage = (e) => {
+      //lets log on terminal for testing
+      console.log(e.data); // data will be {data: "reading_here"} so we do e.data
       // add new reading into data array
       setCurrentData((preVal) => {
         // append if we have less than 12
+        // we have to set a max of 11-10 item in chart to achieve that real time affect
+        // sso we remove the first index and add new one whenever we reach the max i can explain more tmrw
         if (preVal.length < 11) {
           return [
             ...preVal,
@@ -65,7 +77,11 @@ export default function DetailPageOne({ navigation }) {
       });
     };
 
+    // ok u good? ready to scan the qr code? yeah
+
     // FOR TESTING WITHOUT SENSOR
+    // UNCOMMENTN THIS IF YOU Wwant to tets the graoph
+    // without the sensor running it will auto update the list of data ok :)
     // const interval = setInterval(() => {
     //   const num = Math.floor(Math.random() * (800 - 0 + 1) + 0);
     //   setCurrentData((preVal) => {
@@ -128,7 +144,7 @@ export default function DetailPageOne({ navigation }) {
         </View>
       </View>
       <View>
-        {/* https://gifted-charts.web.app/linechart */}
+        {/* https://gifted-charts.web.app/linechart - go here to style n sht ok :)*/}
         <LineChart
           isAnimated
           animationDuration={1200}
