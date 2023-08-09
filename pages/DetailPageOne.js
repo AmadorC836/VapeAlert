@@ -165,6 +165,7 @@ export default function DetailPageOne({ navigation }) {
           onDataChangeAnimationDuration={1000}
           yAxisTextStyle={{ color: "lightgray" }}
           backgroundColor="#3e3e3e"
+          style={{ bottom: 500}}
         />
       </View>
       <TouchableOpacity>
