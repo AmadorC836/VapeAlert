@@ -3,10 +3,8 @@ import {
   NavigationContainer,
   Link,
 } from "@react-navigation/native";
-import { Pressable, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import { Text, View, StyleSheet, Image } from "react-native";
-import { LineChart } from "react-native-chart-kit";
-import { AppLoading } from "expo";
 import { LinearGradient } from "expo-linear-gradient";
 import Touchable from 'react-native-platform-touchable'
 // import { TouchableOpacity } from "react-native-gesture-handler";
