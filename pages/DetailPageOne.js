@@ -17,7 +17,7 @@ PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 // SENSOR IP!
 // HERE WE NEED THE NEW IP OK :)
-const DEFAULT_IP = "192.168.12.195";
+const DEFAULT_IP = "192.168.229.227";
 
 // DEFUALT ROOM READING TENDS TO BE AROUND 100 ok :)
 const DEFAULT_DATA = [{ value: 100 }];
@@ -143,7 +143,7 @@ export default function DetailPageOne({ navigation }) {
           </Text>
         </View>
       </View>
-      <View>
+      <View style={{ bottom: 70}}>
         {/* https://gifted-charts.web.app/linechart - go here to style n sht ok :)*/}
         <LineChart
           isAnimated
@@ -165,10 +165,10 @@ export default function DetailPageOne({ navigation }) {
           onDataChangeAnimationDuration={1000}
           yAxisTextStyle={{ color: "lightgray" }}
           backgroundColor="#3e3e3e"
-          style={{ bottom: 500}}
+          style={{ bottom: 100}}
         />
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity style={{ top: 60}}>
         <View>
           <Image
             style={{
