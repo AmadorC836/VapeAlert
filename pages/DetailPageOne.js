@@ -58,7 +58,7 @@ export default function DetailPageOne({ navigation }) {
 
     console.log("getting info:");
   
-    fetch("http://192.168.1.227/")
+    fetch("http://192.168.12.195/")
       .then((res) => {
         // console.log(res.body);
         return res.json();
@@ -93,7 +93,7 @@ export default function DetailPageOne({ navigation }) {
   // useInterval(saving(mainData),10000)
   // mainDataChange(result)
   console.log(mainData);
-  useInterval(getAverages, 6000);
+  useInterval(getAverages, 1000);
   // let changePer = []
   // useInterval(getAverages, 6000);
 
