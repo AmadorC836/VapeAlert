@@ -81,23 +81,15 @@ export const WifiScreen = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => {
-            if (connect === "Connect") {
-              onPressConnect("Disconnect");
-              onChangeStyle(true);
-            } else {
-              onPressConnect("Connect");
-              onChangeStyle(false);
-            }
-          }}
+          
           style={styles.the}
         >
           <View style={styles.inner}>
             <Text style={{ color: "white", fontSize: 15, left: 10, top: 18 }}>
               Device Name
             </Text>
-            <Text style={[styles.con_dis3, changeStyle && styles.con_dis4]}>
-              {connect}
+            <Text style={{ color: 'white', fontsize: 15, left: 200}}>
+              Connect
             </Text>
           </View>
         </TouchableOpacity>
@@ -155,7 +147,7 @@ const styles = StyleSheet.create({
   SaveModalButtonText: {
     alignItems: "center",
     left: 95,
-    bottom: 5,
+    bottom: 1,
     color: "#FFFFFF",
     fontSize: 20,
     paddingLeft: 53,

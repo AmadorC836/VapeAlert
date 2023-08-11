@@ -115,7 +115,7 @@ export default function DetailPageOne({ navigation }) {
     // };
   }, []);
 
-  return (
+  return(
     <SafeAreaView>
       <View>
         {isPopUpVisible ? (
@@ -124,12 +124,13 @@ export default function DetailPageOne({ navigation }) {
       </View>
       <View>
         <AccordionItem
-          title={"Not Connected"}
+          title={"Restroom 1"}
           body1={"Floor: "}
           body2={"Restroom #:"}
           body3
           floorNum={1}
           restNum={251}
+          
         />
       </View>
       <View>
@@ -143,7 +144,7 @@ export default function DetailPageOne({ navigation }) {
           </Text>
         </View>
       </View>
-      <View style={{ bottom: 70}}>
+      <View style={{ bottom: 32, left: 20 }}>
         {/* https://gifted-charts.web.app/linechart - go here to style n sht ok :)*/}
         <LineChart
           isAnimated
@@ -151,24 +152,23 @@ export default function DetailPageOne({ navigation }) {
           yAxisColor="#FF4B4B"
           rulesColor="FF4B4B"
           showVerticalLines
-          verticalLinesColor="#FF4B4B"
+          verticalLinesColor='#ccc'
           xAxisColor="#FF4B4B"
           color="#FF4B4B"
           initialSpacing={0}
           data={currentData}
-          spacing={35}
+          spacing={25}
           hideDataPoints
-          thickness={5}
+          thickness={6}
           hideRules
           maxValue={800}
           animateOnDataChange
           onDataChangeAnimationDuration={1000}
           yAxisTextStyle={{ color: "lightgray" }}
           backgroundColor="#3e3e3e"
-          style={{ bottom: 100}}
         />
       </View>
-      <TouchableOpacity style={{ top: 60}}>
+      <TouchableOpacity style={{ top: 60, left: 15}}>
         <View>
           <Image
             style={{
@@ -222,7 +222,7 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    right: -30,
+    left: 35,
     top: 320,
   },
   innter4: {

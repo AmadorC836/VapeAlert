@@ -28,8 +28,7 @@ export default function App() {
           alignItems: "flex-start",
           backgroundColor: "#262626",
         }}
-      >
-        
+      > 
         <Text style={{ fontSize: 30, color: "white" }}>Dashboard </Text>
       </View>
       <NavigationContainer theme={MyTheme}>

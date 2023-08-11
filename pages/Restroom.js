@@ -33,7 +33,7 @@ export default function Restroom({ navigation }) {
   return (
     <View style={{ backgroundColor: "#262626", flex: 1 }}>
       <LinearGradient
-        colors={["#262626", "transparent"]}
+        colors={["#262626", "#262626"]}
         style={{ position: "absolute", left: 30, right: 0, top: 0, height: 700 }}
       />
 

@@ -51,7 +51,7 @@ const TextInputExample = () => {
     <TouchableOpacity onPress ={()=> toggleListItem()}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}> {title}</Text> 
-        <Image source={require("../assets/WifiGone.png")} style={{ height:18, width: 19.5, left: 30}}/>
+        
         {/* <Animated.View style={{transform: [{rotateZ: arrowTransform}]}}> */}
         <Icon name={'chevron-right'} size={20} color={'white'} />
         {/* </Animated.View> */}
@@ -118,8 +118,8 @@ container:{
   backgroundColor:'black',
   marginBottom:'2%',
   overflow:'hidden',
-  left:21
- 
+  left:30,
+ top: 10
 
 },
 title:{

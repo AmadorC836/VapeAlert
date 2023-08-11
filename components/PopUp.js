@@ -11,14 +11,14 @@ import {
 export default function PopUp(props) {
 
     return(
-        <View  style={{ backgroundColor: "rgba(23, 23, 23, 0.80)", width: 369, height: 141, borderRadius: 15, left: 20}}>
+        <View  style={{ backgroundColor: "rgba(23, 23, 23, 0.80)", width: 369, height: 141, borderRadius: 15, left: 10, top: 0}}>
             <View style= {{backgroundColor: "#841515", height: 71, borderRadius: 15,}}>
                 <Image style={{ height: 31, width: 25.952, top: 6, left: 10}} source={require("../assets/VapeAlertLogo.png")}/>
                 <Text style={{ color: "white", fontSize: 15, left: 50, bottom: 15}}>
                     Vape Alert
                 </Text>
                 <Text style={{ color: "white", fontSize: 15, left: 15, bottom: 12}}>
-                    High Levels of HCHO Detected                          Now
+                    High Levels of HCHO Detected              Now
                 </Text>
             </View>
         <View>
