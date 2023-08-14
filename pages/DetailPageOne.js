@@ -13,6 +13,7 @@ import { AccordionItem } from "../components/AccordianList";
 import { WifiScreen } from "./KalvinsCode";
 import { PermissionsAndroid } from "react-native";
 import PopUp from "../components/PopUp";
+import DropShadow from "react-native-drop-shadow";
 PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 // SENSOR IP!
@@ -136,7 +137,7 @@ export default function DetailPageOne({ navigation }) {
       <View>
         <WifiScreen />
       </View>
-      <View style={style.that}>
+      <View style={[style.that, style.boxShadow]}>
         <View style={style.inner3}>
           <Text style={{ color: "white", fontSize: 25 }}>
             HCHO <Text style={{ color: "#FF4B4B" }}>Level</Text> :{" "}
@@ -144,7 +145,14 @@ export default function DetailPageOne({ navigation }) {
           </Text>
         </View>
       </View>
-      <View style={{ bottom: 32, left: 20 }}>
+      <View style={{ bottom: 75, left: 34, backgroundColor: "#3E3E3E", width: 355, height:292, borderRadius: 15 }}>
+        
+        <View style={{transform: [{ rotate: '180deg' }], color: "white", right: 300, top: 100}}>
+          <Text style>
+Hello
+          </Text>
+          </View>
+      <View style={{ top: 30, left: 40}}>
         {/* https://gifted-charts.web.app/linechart - go here to style n sht ok :)*/}
         <LineChart
           isAnimated
@@ -167,6 +175,7 @@ export default function DetailPageOne({ navigation }) {
           yAxisTextStyle={{ color: "lightgray" }}
           backgroundColor="#3e3e3e"
         />
+      </View>
       </View>
       <TouchableOpacity style={{ top: 60, left: 15}}>
         <View>
@@ -260,4 +269,13 @@ const style = StyleSheet.create({
     alignItems: "flex-end",
     justifyContent: "center",
   },
+  boxShadow: {
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset:{
+      width: 6,
+      height: 6
+    },
+    shadowOpacity: 0.6,
+    shadowRadius:4
+  }
 });

@@ -19,7 +19,7 @@ export const WifiScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.separator}>
-        <TouchableOpacity onPress={handleModal} style={styles.popupButton}>
+        <TouchableOpacity onPress={handleModal} style={[styles.popupButton, styles.boxShadow]}>
           <Text style={styles.SaveModalButtonText}>Connect</Text>
         </TouchableOpacity>
       </View>
@@ -35,7 +35,7 @@ export const WifiScreen = () => {
         >
           <TouchableOpacity
             onPress={handleModal}
-            style={styles.CancelModalButton}
+            style={[styles.CancelModalButton]}
           >
             <Text style={styles.CancelModalText}>X</Text>
           </TouchableOpacity>
@@ -207,14 +207,13 @@ const styles = StyleSheet.create({
     color: "white",
     left: 190,
   },
-  con_dis3: {
-    flexWrap: "wrap",
-    color: "white",
-    left: 200,
-  },
-  con_dis4: {
-    flexWrap: "wrap",
-    color: "white",
-    left: 190,
-  },
+  boxShadow: {
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset:{
+      width: 10,
+      height: 10
+    },
+    shadowOpacity: 0.6,
+    shadowRadius:4
+  }
 });
